@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @musica.nome %>
+</p>
+
+<p>
+  <strong>Autor e compositor:</strong>
+  <%= @musica.autor_e_compositor %>
+</p>
+
+<p>
+  <strong>Temas:</strong>
+  <%= @musica.temas %>
+</p>
+
+<p>
+  <strong>Cifras:</strong>
+  <%= @musica.cifras %>
+</p>
+
+<p>
+  <strong>Popularidade:</strong>
+  <%= @musica.popularidade %>
+</p>
+
+<%= link_to 'Edit', edit_musica_path(@musica) %> |
+<%= link_to 'Back', musicas_path %>
