@@ -1,15 +1,50 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  nome: MyString
-  autor_e_compositor: MyString
+  titulo: MyString
+  musico: MyString
   temas: MyString
   cifras: MyText
   popularidade: 1
 
 two:
-  nome: MyString
-  autor_e_compositor: MyString
+  titulo: MyString
+  musico: MyString
   temas: MyString
   cifras: MyText
   popularidade: 1
+
+fogo_suave:
+  titulo: Fogo Suave
+  musico: Ziza Fernandes
+  temas: Espírito Santo
+  url_cifras: https://www.cifraclub.com.br/ziza-fernandes/fogo-suave/
+  cifras: |
+    cifras
+                F7M             G/F                  Em7  Am7
+    Teus dedos tocam o meu pensar, carinho em minha alma.
+               Dm7    G              C7M          C7
+    Sossega e acalma minha vida agitada
+           F7M             G/F           Em7  Am7
+    Tua presença me acolhe, não vou embora.
+               Dm7   G         C7M       C7/9 Bb/C
+    É tua esta hora, estou nascendo.
+
+    Refrão::
+         F7M G/F           Em7  Eb°
+    Adorarei, Espírito Santo.
+           Dm7           G                  C7M    C7
+    Fogo suave, abrasador, doce hóspede da alma
+         F7M G/F           Em       Eb°
+    Adorarei, Espírito Santo.
+          Dm7            G                  C7M    C7/9 Bb/C
+    Fogo suave, abrasador, doce hóspede da alma
+
+               F7M            G/F        Em7      Am7
+    Meus olhos cantam ao chorar, Arrependida...
+             Dm7   G         C7M        C7
+    Ovelha fugida Querendo voltar
+              F7M               G/F            Em7       Am7
+    Aprecia o canto que eu te dou, Colhe as palavras
+                Dm7  G           C7M       C7/9 Bb/C
+    Saudosas da alma, Sedenta de amor...

@@ -3,6 +3,7 @@ require 'test_helper'
 class MusicasControllerTest < ActionDispatch::IntegrationTest
   setup do
     @musica = musicas(:one)
+    @titulo_randomico = "Música #{rand(1000)}"
   end
 
   test "should get index" do
@@ -17,7 +18,13 @@ class MusicasControllerTest < ActionDispatch::IntegrationTest
 
   test "should create musica" do
     assert_difference('Musica.count') do
-      post musicas_url, params: { musica: { autor_e_compositor: @musica.autor_e_compositor, cifras: @musica.cifras, nome: @musica.nome, popularidade: @musica.popularidade, temas: @musica.temas } }
+      post musicas_url, params: { musica: { 
+        titulo: @titulo_randomico, 
+        musico: @musica.musico, 
+        cifras: @musica.cifras, 
+        popularidade: @musica.popularidade, 
+        temas: @musica.temas 
+      }}
     end
 
     assert_redirected_to musica_url(Musica.last)
@@ -34,7 +41,13 @@ class MusicasControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update musica" do
-    patch musica_url(@musica), params: { musica: { autor_e_compositor: @musica.autor_e_compositor, cifras: @musica.cifras, nome: @musica.nome, popularidade: @musica.popularidade, temas: @musica.temas } }
+    patch musica_url(@musica), params: { musica: { 
+      musico: @musica.musico, 
+      cifras: @musica.cifras, 
+      titulo: @titulo_randomico, 
+      popularidade: @musica.popularidade, 
+      temas: @musica.temas 
+    }}
     assert_redirected_to musica_url(@musica)
   end
 

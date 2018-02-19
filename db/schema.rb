@@ -13,9 +13,10 @@
 ActiveRecord::Schema.define(version: 20180210170547) do
 
   create_table "musicas", force: :cascade do |t|
-    t.string "nome"
-    t.string "autor_e_compositor"
+    t.string "titulo"
+    t.string "musico"
     t.string "temas"
+    t.string "url_cifras"
     t.text "cifras"
     t.integer "popularidade"
     t.datetime "created_at", null: false
