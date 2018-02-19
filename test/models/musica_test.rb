@@ -56,9 +56,24 @@ class MusicaTest < ActiveSupport::TestCase
     musica = Musica.new(
       titulo: musicas(:fogo_suave).titulo,
       musico: 'Ziza Fernandes',
-      temas: 'diversos temas'
+      temas: 'diversos temas',
+      cifras: 'C F G'
     )
     assert musica.invalid?
     assert_equal [I18n.translate('errors.messages.taken')], musica.errors[:titulo]
+  end
+
+  test 'título da música deve ter pelo menos 3 caracteres' do
+    musica = Musica.new(
+      titulo: '12',
+      musico: 'John Williams',
+      temas: 'teste',
+      cifras: 'C F G'
+    )
+
+    assert musica.invalid?
+
+    mensagem_esperada = I18n.translate('errors.messages.too_short.other', {count:3})
+    assert_equal [mensagem_esperada], musica.errors[:titulo]
   end
 end
