@@ -9,8 +9,8 @@
 Musica.delete_all
 
 Musica.create!(
-  nome: 'A barca',
-  autor_e_compositor: 'Padre Zezinho',
+  titulo: 'A barca',
+  musico: 'Padre Zezinho',
   temas: 'comunhão, serviço, papa, tempo comum',
   cifras: %{ C  G/B              Am          C7  F        Dm                 G
 Tu,te abeiraste da praia,      não buscaste nem sábios nem ricos.
@@ -45,8 +45,8 @@ Bondoso amigo que assim me chamas.
 )
 
 Musica.create!(
-  nome: 'Chuva de graça',
-  autor_e_compositor: 'Eliana Ribeiro',
+  titulo: 'Chuva de graça',
+  musico: 'Eliana Ribeiro',
   temas: 'entrada, final, alegria, água',
   cifras: %{C       G       Am      F
 Ooohhh  Ooohhh  Ooohhh  Ooohhh
@@ -87,8 +87,8 @@ Ooohhh  Ooohhh  Ooohhh  Ooohh},
 )
 
 Musica.create!(
-  nome:'Yeshua',
-  autor_e_compositor: 'Comunidade Católica Colo de Deus',
+  titulo:'Yeshua',
+  musico: 'Comunidade Católica Colo de Deus',
   temas: 'adoração',
   cifras: %{     Em
 Te chamam de Deus e de Senhor

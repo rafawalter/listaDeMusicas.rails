@@ -1,0 +1,19 @@
+<% if notice %>
+  <aside id='notice'><%= notice %></aside>
+<% end %>
+
+<h1>Músicas para este evento</h1>
+
+<ul class='musicas'>
+  <% @musicas.each do |musica| %>
+    <li>
+      <h2><%= musica.titulo %></h2>
+      <div class='musico'>
+        <%= musica.musico %>
+      </div>
+      <p>
+        <%= musica.temas %>
+      </p>
+    </li>
+  <% end %>
+</ul>
