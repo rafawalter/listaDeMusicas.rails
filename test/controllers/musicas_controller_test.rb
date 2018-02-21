@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class MusicasControllerTest < ActionDispatch::IntegrationTest
+  fixtures :musicas
+
   setup do
     @musica = musicas(:one)
     @titulo_randomico = "Música #{rand(1000)}"
@@ -9,11 +11,37 @@ class MusicasControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
     get musicas_url
     assert_response :success
+
+    assert_select 'h1', 'Músicas'
+    assert_select '.musica', 3
+
+    assert_select '.titulo', 'Fogo Suave'
+    assert_select '.musico', 'Ziza Fernandes'
+    assert_select '.temas', 'Espírito Santo'
+
+    assert_select '.actions a', 'Show'
+    assert_select '.actions a', 'Edit'
+    assert_select '.actions a', 'Destroy'
+
+    assert_select 'a', 'Nova Música'
   end
 
   test "should get new" do
     get new_musica_url
     assert_response :success
+
+    assert_select 'h1', 'New Musica'
+
+    assert_select 'input#musica_titulo'
+    assert_select 'input#musica_musico'
+    assert_select 'input#musica_temas'
+    assert_select 'input#musica_url_cifras'
+    assert_select 'textarea#musica_cifras'
+    assert_select 'input#musica_popularidade'
+
+    assert_select 'input[value="Create Musica"]'
+    assert_select 'a', 'Back'
+
   end
 
   test "should create musica" do
@@ -58,4 +86,5 @@ class MusicasControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to musicas_url
   end
+
 end

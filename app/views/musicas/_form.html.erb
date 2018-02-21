@@ -12,18 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :nome %>
-    <%= form.text_field :nome, id: :musica_nome %>
+    <%= form.label :titulo %>
+    <%= form.text_field :titulo, id: :musica_titulo %>
   </div>
 
   <div class="field">
-    <%= form.label :autor_e_compositor %>
-    <%= form.text_field :autor_e_compositor, id: :musica_autor_e_compositor %>
+    <%= form.label :musico %>
+    <%= form.text_field :musico, id: :musica_musico %>
   </div>
 
   <div class="field">
     <%= form.label :temas %>
     <%= form.text_field :temas, id: :musica_temas %>
+  </div>
+
+  <div class="field">
+    <%= form.label :url_cifras %>
+    <%= form.text_field :url_cifras, id: :musica_url_cifras %>
   </div>
 
   <div class="field">

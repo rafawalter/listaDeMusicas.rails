@@ -2,39 +2,43 @@
   <aside id="notice"><%= notice %></aside>
 <% end %>
 
-<h1>Musicas</h1>
+<h1>Músicas</h1>
 
 <table>
   <tfoot>
-    <tr>
-      <td colspan="2">
-        <%= link_to 'Nova Música', new_musica_path %>
-      </td>
-    </tr>
+  <tr>
+    <td colspan="2">
+      <%= link_to 'Nova Música', new_musica_path %>
+    </td>
+  </tr>
   </tfoot>
   <tbody>
-  <% @musicas.each do |musica| %>
-    <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+  <% cache @musicas do %>
+    <% @musicas.each do |musica| %>
+      <% cache musica do %>
+        <tr class="musica <%= cycle('list_line_odd', 'list_line_even') %>">
 
-      <td>
-        <h2 class="titulo"><%= musica.titulo %></h2>
-        <h3 class='musico'><%= musica.musico %></h3>
-        <div class='temas'><%= musica.temas %></div>
-      </td>
+          <td>
+            <h2 class="titulo"><%= musica.titulo %></h2>
+            <h3 class='musico'><%= musica.musico %></h3>
+            <div class='temas'><%= musica.temas %></div>
+          </td>
 
-      <td class="actions">
-        <ul>
-          <li><%= link_to 'Show', musica %></li>
-          <li><%= link_to 'Edit', edit_musica_path(musica) %></li>
-          <li>
-            <%= link_to 'Destroy',
-                        musica,
-                        method: :delete,
-                        data: { confirm: 'Tem certeza?' } %>
-          </li>
-        </ul>
-      </td>
-    </tr>
+          <td class="actions">
+            <ul>
+              <li><%= link_to 'Show', musica %></li>
+              <li><%= link_to 'Edit', edit_musica_path(musica) %></li>
+              <li>
+                <%= link_to 'Destroy',
+                            musica,
+                            method: :delete,
+                            data: {confirm: 'Tem certeza?'} %>
+              </li>
+            </ul>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
   <% end %>
   </tbody>
 </table>
