@@ -1,29 +1,34 @@
 <p id="notice"><%= notice %></p>
+<div class="musica">
+  <p>
+    <strong>Título:</strong>
+    <spam class="titulo"><%= @musica.titulo %></spam>
+  </p>
 
-<p>
-  <strong>Título:</strong>
-  <%= @musica.titulo %>
-</p>
+  <p>
+    <strong>Músico:</strong>
+    <span class='musico'><%= @musica.musico %></span>
+  </p>
 
-<p>
-  <strong>Músico:</strong>
-  <%= @musica.musico %>
-</p>
+  <p>
+    <strong>Temas:</strong>
+    <span class="temas"><%= @musica.temas %></span>
+  </p>
 
-<p>
-  <strong>Temas:</strong>
-  <%= @musica.temas %>
-</p>
+  <p>
+    <strong>Url Cifras:</strong>
+    <span class="url_cifras"><a href="<%= @musica.url_cifras %>"><%= @musica.url_cifras %></a></span>
+  </p>
 
-<p>
-  <strong>Cifras:</strong>
-  <%= @musica.cifras %>
-</p>
+  <p>
+    <strong>Cifras:</strong>
+    <span class="cifras"><%= @musica.cifras %></span>
+  </p>
 
-<p>
-  <strong>Popularidade:</strong>
-  <%= @musica.popularidade %>
-</p>
-
+  <p>
+    <strong>Popularidade:</strong>
+    <span class="popularidade"><%= @musica.popularidade %></span>
+  </p>
+</div>
 <%= link_to 'Edit', edit_musica_path(@musica) %> |
 <%= link_to 'Back', musicas_path %>

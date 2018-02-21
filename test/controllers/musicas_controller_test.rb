@@ -46,12 +46,13 @@ class MusicasControllerTest < ActionDispatch::IntegrationTest
 
   test "should create musica" do
     assert_difference('Musica.count') do
-      post musicas_url, params: { musica: { 
-        titulo: @titulo_randomico, 
-        musico: @musica.musico, 
-        cifras: @musica.cifras, 
-        popularidade: @musica.popularidade, 
-        temas: @musica.temas 
+      post musicas_url, params: {musica: {
+          titulo: @titulo_randomico,
+          musico: @musica.musico,
+          temas: @musica.temas,
+          url_cifras: @musica.url_cifras,
+          cifras: @musica.cifras,
+          popularidade: @musica.popularidade,
       }}
     end
 
@@ -61,20 +62,42 @@ class MusicasControllerTest < ActionDispatch::IntegrationTest
   test "should show musica" do
     get musica_url(@musica)
     assert_response :success
+
+    assert_select '.musica .titulo'
+    assert_select '.musica .musico'
+    assert_select '.musica .temas'
+    assert_select '.musica .url_cifras'
+    assert_select '.musica .cifras'
+    assert_select '.musica .popularidade'
+
+    assert_select 'a', 'Edit'
+    assert_select 'a', 'Back'
   end
 
   test "should get edit" do
     get edit_musica_url(@musica)
     assert_response :success
+
+    assert_select 'input#musica_titulo'
+    assert_select 'input#musica_musico'
+    assert_select 'input#musica_temas'
+    assert_select 'input#musica_url_cifras'
+    assert_select 'textarea#musica_cifras'
+    assert_select 'input#musica_popularidade'
+
+    assert_select 'input[value="Update Musica"]'
+    assert_select 'a', 'Show'
+    assert_select 'a', 'Back'
   end
 
   test "should update musica" do
-    patch musica_url(@musica), params: { musica: { 
-      musico: @musica.musico, 
-      cifras: @musica.cifras, 
-      titulo: @titulo_randomico, 
-      popularidade: @musica.popularidade, 
-      temas: @musica.temas 
+    patch musica_url(@musica), params: {musica: {
+        titulo: @titulo_randomico,
+        musico: @musica.musico,
+        temas: @musica.temas,
+        url_cifras: @musica.url_cifras,
+        cifras: @musica.cifras,
+        popularidade: @musica.popularidade,
     }}
     assert_redirected_to musica_url(@musica)
   end
