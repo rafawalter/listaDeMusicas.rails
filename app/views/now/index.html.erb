@@ -5,15 +5,19 @@
 <h1>Músicas para agora</h1>
 
 <ul class='musicas'>
-  <% @musicas.each do |musica| %>
-    <li>
-      <h2><%= musica.titulo %></h2>
-      <div class='musico'>
-        <%= musica.musico %>
-      </div>
-      <p class='temas'>
-        <%= musica.temas %>
-      </p>
-    </li>
+  <% cache @musicas do %>
+    <% @musicas.each do |musica| %>
+      <% cache musica do %>
+        <li>
+          <h2><%= musica.titulo %></h2>
+          <div class='musico'>
+            <%= musica.musico %>
+          </div>
+          <p class='temas'>
+            <%= musica.temas %>
+          </p>
+        </li>
+      <% end %>
+    <% end %>
   <% end %>
 </ul>
