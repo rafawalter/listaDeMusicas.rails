@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Musica Selecionadas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Momento</th>
+      <th>Musica</th>
+      <th>Evento</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @musica_selecionadas.each do |musica_selecionada| %>
+      <tr>
+        <td><%= musica_selecionada.momento %></td>
+        <td><%= musica_selecionada.musica %></td>
+        <td><%= musica_selecionada.evento %></td>
+        <td><%= link_to 'Show', musica_selecionada %></td>
+        <td><%= link_to 'Edit', edit_musica_selecionada_path(musica_selecionada) %></td>
+        <td><%= link_to 'Destroy', musica_selecionada, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Musica Selecionada', new_musica_selecionada_path %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Momento:</strong>
+  <%= @musica_selecionada.momento %>
+</p>
+
+<p>
+  <strong>Musica:</strong>
+  <%= @musica_selecionada.musica %>
+</p>
+
+<p>
+  <strong>Evento:</strong>
+  <%= @musica_selecionada.evento %>
+</p>
+
+<%= link_to 'Edit', edit_musica_selecionada_path(@musica_selecionada) %> |
+<%= link_to 'Back', musica_selecionadas_path %>
