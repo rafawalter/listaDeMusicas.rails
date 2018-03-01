@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :musica_selecionadas
   resources :eventos
   root 'now#index', as: 'now_index'
 

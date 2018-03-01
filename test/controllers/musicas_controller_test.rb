@@ -110,4 +110,12 @@ class MusicasControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to musicas_url
   end
 
+  test 'nao pode excluir musica selecionada para um evento' do
+    assert_difference 'Musica.count', 0 do
+      delete musica_url(musicas(:two))
+    end
+
+    assert_redirected_to musicas_url
+  end
+
 end
