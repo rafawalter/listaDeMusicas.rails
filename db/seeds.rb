@@ -6,9 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 # encoding: utf-8
+MusicaSelecionada.delete_all
 Musica.delete_all
+Evento.delete_all
 
-Musica.create!(
+
+musica_a_barca = Musica.create!(
   titulo: 'A barca',
   musico: 'Padre Zezinho',
   temas: 'comunhão, serviço, papa, tempo comum',
@@ -86,7 +89,7 @@ Ooohhh  Ooohhh  Ooohhh  Ooohh},
   popularidade: 9
 )
 
-Musica.create!(
+musica_yeshua = Musica.create!(
   titulo:'Yeshua',
   musico: 'Comunidade Católica Colo de Deus',
   temas: 'adoração',
@@ -135,4 +138,25 @@ Que eu nem sei me expressar
   C      G       D
 Yeshua, Tu és tão lindo},
   popularidade: 9
+)
+
+
+
+evento_quaresma = Evento.create!(
+  nome: '2o Domingo da Quaresma',
+  data: '2018-02-25 10:00 BRT',
+  topicos: 'quaresma',
+  celebrante: 'Pe Carlos David'
+)
+
+MusicaSelecionada.create!(
+  momento: 'Entrada',
+  evento: evento_quaresma,
+  musica: musica_a_barca
+)
+
+MusicaSelecionada.create!(
+    momento: 'Adoracao',
+    evento: evento_quaresma,
+    musica: musica_yeshua
 )

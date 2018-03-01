@@ -20,5 +20,18 @@
   <%= @evento.celebrante %>
 </p>
 
+
+<p>
+  <strong>Musicas:</strong>
+  <ul>
+    <% @evento.musica_selecionadas.each do |selecao| %>
+      <li>
+        <%= "#{selecao.momento}: #{selecao.musica.titulo}" %>
+        <%= link_to 'Show', selecao.musica %>
+      </li>
+    <% end %>
+  </ul>
+</p>
+
 <%= link_to 'Edit', edit_evento_path(@evento) %> |
 <%= link_to 'Back', eventos_path %>
