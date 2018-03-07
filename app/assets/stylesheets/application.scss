@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+$header-font-color: #bfb;
+
 body {
   margin: 0;
   padding: 0;
@@ -23,15 +26,21 @@ header.main {
     text-align: left; // left align on desktop
   }
   background: #282;
+  color: $header-font-color;
   margin: 0;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
   img {
     height: 60px;
     padding: 13px + 6.5px;
-    fill: #bfb;
+    fill: $header-font-color;
   }
 
   h1 {
-    display: none;
+
   }
 }
 .content {
