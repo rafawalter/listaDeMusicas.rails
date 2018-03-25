@@ -18,12 +18,12 @@
 
   <div class="field">
     <%= form.label :musica_id %>
-    <%= form.text_field :musica_id, id: :musica_selecionada_musica_id %>
+    <%= form.collection_select :musica_id, Musica.all.sort, :id, :titulo, prompt: "Selecione uma música" %>
   </div>
 
   <div class="field">
     <%= form.label :evento_id %>
-    <%= form.text_field :evento_id, id: :musica_selecionada_evento_id %>
+    <%= form.collection_select :evento_id, Evento.all.sort, :id, :nome, prompt: "Selecione um evento" %>
   </div>
 
   <div class="actions">
