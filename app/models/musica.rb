@@ -11,6 +11,9 @@ class Musica < ApplicationRecord
   	with: /\Ahttps?:\/\//
   }
 
+  def to_s
+    titulo || '<música sem título>'
+  end
 
   private
 

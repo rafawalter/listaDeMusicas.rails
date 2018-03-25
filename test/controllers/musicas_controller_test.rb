@@ -39,8 +39,8 @@ class MusicasControllerTest < ActionDispatch::IntegrationTest
     assert_select 'textarea#musica_cifras'
     assert_select 'input#musica_popularidade'
 
-    assert_select 'input[value="Create Musica"]'
-    assert_select 'a', 'Back'
+    assert_select 'input[value="Salvar"]'
+    assert_select 'a', 'Cancelar'
 
   end
 
@@ -85,9 +85,8 @@ class MusicasControllerTest < ActionDispatch::IntegrationTest
     assert_select 'textarea#musica_cifras'
     assert_select 'input#musica_popularidade'
 
-    assert_select 'input[value="Update Musica"]'
-    assert_select 'a', 'Show'
-    assert_select 'a', 'Back'
+    assert_select 'input[value="Salvar"]'
+    assert_select 'a', 'Cancelar'
   end
 
   test "should update musica" do

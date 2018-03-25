@@ -76,4 +76,16 @@ class MusicaTest < ActiveSupport::TestCase
     mensagem_esperada = I18n.translate('errors.messages.too_short.other', {count:3})
     assert_equal [mensagem_esperada], musica.errors[:titulo]
   end
+
+  test 'música deve ter representação adequada como string' do
+    musica = musicas(:fogo_suave)
+
+    assert_equal musica.titulo, musica.to_s
+  end
+
+  test 'música deve ter representação string mesmo sem atributos preenchidos' do
+    musica = Musica.new
+
+    assert_equal '<música sem título>', musica.to_s
+  end
 end

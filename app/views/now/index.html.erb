@@ -2,22 +2,15 @@
   <aside id='notice'><%= notice %></aside>
 <% end %>
 
-<h1>Músicas para agora</h1>
+<h1>Músicas para <%= @evento %></h1>
 
 <ul class='musicas'>
-  <% cache @musicas do %>
-    <% @musicas.each do |musica| %>
-      <% cache musica do %>
-        <li>
-          <h2><%= musica.titulo %></h2>
-          <div class='musico'>
-            <%= musica.musico %>
-          </div>
-          <p class='temas'>
-            <%= musica.temas %>
-          </p>
-        </li>
-      <% end %>
+
+    <% @evento.musica_selecionadas.each do |selecao| %>
+      <li>
+        <%= "#{selecao.momento}: #{selecao.musica.titulo}" %>
+        <%= link_to 'Edit', edit_musica_selecionada_path(selecao) %>
+        <%= link_to 'Show', selecao.musica %>
+      </li>
     <% end %>
-  <% end %>
-</ul>
+  </ul>

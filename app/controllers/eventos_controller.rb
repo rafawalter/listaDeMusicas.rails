@@ -1,4 +1,7 @@
 class EventosController < ApplicationController
+  include CurrentEvent
+
+  before_action :obter_evento_selecionado, only: [:index]
   before_action :set_evento, only: [:show, :edit, :update, :destroy]
 
   # GET /eventos
@@ -62,13 +65,14 @@ class EventosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_evento
-      @evento = Evento.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def evento_params
-      params.require(:evento).permit(:nome, :data, :topicos, :celebrante)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_evento
+    @evento = Evento.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def evento_params
+    params.require(:evento).permit(:nome, :data, :topicos, :celebrante)
+  end
 end

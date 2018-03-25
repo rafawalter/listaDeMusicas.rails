@@ -1,5 +1,7 @@
 class NowController < ApplicationController
+  include CurrentEvent
+
   def index
-    @musicas = Musica.order :titulo
+    @evento = obter_evento_selecionado if @evento.nil?
   end
 end

@@ -1,4 +1,7 @@
 class MusicaSelecionadasController < ApplicationController
+  include CurrentEvent
+
+  before_action :obter_evento_selecionado, only: [:create]
   before_action :set_musica_selecionada, only: [:show, :edit, :update, :destroy]
 
   # GET /musica_selecionadas
@@ -24,11 +27,15 @@ class MusicaSelecionadasController < ApplicationController
   # POST /musica_selecionadas
   # POST /musica_selecionadas.json
   def create
-    @musica_selecionada = MusicaSelecionada.new(musica_selecionada_params)
+    musica = Musica.find(params[:musica_id])
+    @musica_selecionada = @evento.musica_selecionadas.build(
+      musica: musica,
+      momento: params[:momento] || '<momento não nomeado>'
+    )
 
     respond_to do |format|
       if @musica_selecionada.save
-        format.html { redirect_to @musica_selecionada, notice: 'Musica selecionada was successfully created.' }
+        format.html { redirect_to @musica_selecionada.evento, notice: 'Musica selecionada was successfully created.' }
         format.json { render :show, status: :created, location: @musica_selecionada }
       else
         format.html { render :new }

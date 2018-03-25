@@ -27,6 +27,7 @@
     <% @evento.musica_selecionadas.each do |selecao| %>
       <li>
         <%= "#{selecao.momento}: #{selecao.musica.titulo}" %>
+        <%= link_to 'Edit', edit_musica_selecionada_path(selecao) %>
         <%= link_to 'Show', selecao.musica %>
       </li>
     <% end %>

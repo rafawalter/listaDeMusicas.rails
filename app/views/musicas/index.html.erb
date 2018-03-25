@@ -22,6 +22,7 @@
             <h2 class="titulo"><%= musica.titulo %></h2>
             <h3 class='musico'><%= musica.musico %></h3>
             <div class='temas'><%= musica.temas %></div>
+            <%= button_to 'Selecionar', musica_selecionadas_path(musica_id: musica) %>
           </td>
 
           <td class="actions">

@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class EventosControllerTest < ActionDispatch::IntegrationTest
+  fixtures :eventos, :musicas, :musica_selecionadas
+
   setup do
     @evento = eventos(:one)
   end
